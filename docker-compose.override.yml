@@ -1,0 +1,4 @@
+services:
+  dag-processor:
+    volumes:
+      - ./data:/usr/local/airflow/data

@@ -1,0 +1,43 @@
+aws_conn_id: aws_conn_id
+
+s3:
+  bucket: <your-bucket-name>  # e.g., engineering-course
+  folder: <your-bucket-folder>  # e.g., RetailSourceFiles/
+
+local:
+  folder: data/RetailSourceFiles/
+
+source: local  # Change to "S3" when using AWS S3
+
+snowflake:
+  conn_id: my_snowflake_conn
+  account: <your-snowflake-account-name>
+  database: <your-snowflake-database>
+  targets:
+    sales:
+      schema: cleansed_layer
+      table: sales_data
+    product:
+      schema: cleansed_layer
+      table: product_data
+    merged_sales_products:
+      schema: business_layer
+      table: merged_sales_products
+    enriched_sales_products:
+      schema: business_layer
+      table: enriched_sales_products
+    sales_hourly_trends:
+      schema: presentation_layer
+      table: sales_hourly_trends
+    products_sales_performance:
+      schema: presentation_layer
+      table: products_sales_performance
+    seasonal_sales_patterns:
+      schema: presentation_layer
+      table: seasonal_sales_patterns
+    revenue_concentration_analysis:
+      schema: presentation_layer
+      table: revenue_concentration_analysis
+    order_status_over_time:
+      schema: presentation_layer
+      table: order_status_over_time
